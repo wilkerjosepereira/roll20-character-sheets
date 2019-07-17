@@ -8207,6 +8207,11 @@ Charmancer overall slide template
 </charmancer>
 -->
 <charmancer class="sheet-repeating-topbar">
+    <div class="logo-row">
+        <img alt="Starfindr logo" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Starfinder%20by%20Roll20/Assets/starfinder_1000x200.png" />
+        <img alt="Charactermancer logo with a wizard hat, hammer, and wand" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Starfinder%20by%20Roll20/Assets/mancerpng.png" />
+        <img alt="Roll20 logo of d20" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Starfinder%20by%20Roll20/Assets/Roll20.png" />
+    </div>
     <div class='charmancerrow sheet-attributes-row'>
         <div class='attribute-container'>
             <span class='strength sheet-attribute-value'>10</span>
@@ -9179,7 +9184,9 @@ Charmancer overall slide template
                 <button type="submit" class="mancernav-button" value="summary-slide">Apply Changes</button>
             </div>
             <div class='section'>
-                <button type="submit" value="pc-equipment">Next</button>
+                <!-- Commenting out until UC-491 -->
+                <!--<button type="submit" value="pc-equipment">Next</button>-->
+                <button type="submit" value="pc-feat">Next</button>
             </div>
         </div>
     </div>
@@ -9209,7 +9216,8 @@ Charmancer overall slide template
                 <button type="submit" class="mancernav-button" value="summary-slide">Apply Changes</button>
             </div>
             <div class='section'>
-                <button type="submit" value="pc-equipment">Next</button>
+                <!-- Commenting out until UC-491 -->
+                <!--<button type="submit" value="pc-equipment">Next</button>-->
             </div>
         </div>
     </div>
@@ -9265,7 +9273,8 @@ Charmancer overall slide template
                 <button type="cancel" value="example" data-i18n="cancel">Cancel</button>
             </div>
             <div class='section'>
-                <button type="finish" value="update">Update Existing Character</button>
+                <!-- Disabling this button per UC-619 -->
+                <button type="finish" value="update" disabled>Update Existing Character (Coming soon)</button>
             </div>
         </div>
     </div>
@@ -9484,7 +9493,7 @@ Charmancer overall slide template
             info: logInfo,
             notice: logNotice,
             log: logLog
-        };
+        }; 
     }());
 
     /* ---- END: TheAaronSheet.js ---- */
@@ -19247,7 +19256,7 @@ Charmancer overall slide template
             }
             setObj.skill_points_available = _.reduce(data.repeatIDs,(memo,id)=>{
                 if(/repeating_.+?_class/.test(id)){
-                    memo += (data.mancerData[`${id}_skill_points`]*1||0) + data.mancerData.intelligence_mod;
+                    memo += (data.mancerData[`${id}_skill_points`]*1||0) + parseInt(data.mancerData.intelligence_mod);
                 }
                 return memo;
             },0);
